@@ -241,8 +241,8 @@ async def add_more_buttons(callback: CallbackQuery, state: FSMContext):
 
 
 @router.callback_query(
-    F.data.in_(["add_buttons_no", "add_more_buttons_no"]),
-    AddScenarioStates
+    AddScenarioStates.asking_for_buttons,
+    F.data.in_(["add_buttons_no", "add_more_buttons_no"])
 )
 async def finish_buttons_ask_reminder(callback: CallbackQuery, state: FSMContext):
     """Закончили с кнопками, спрашиваем про напоминание"""
